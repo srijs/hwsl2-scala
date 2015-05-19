@@ -16,7 +16,7 @@ class SL2(
     case _ => false
   }
 
-  override def hashCode:Int = {
+  override def hashCode: Int = {
     val prime = 31
     var result = 1
     result = prime * result + a.hashCode

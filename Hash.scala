@@ -1,4 +1,4 @@
-class MutableHash private (m: SL2) {
+class MutableHash private (m: SL2) extends Mutable {
 
   def this() = this(new SL2())
 
@@ -14,9 +14,7 @@ class MutableHash private (m: SL2) {
   override def hashCode: Int = 31 + m.hashCode
 
   def withCopy_(f: MutableHash => Unit): MutableHash = {
-    val c = copy()
-    f(c)
-    c
+    val c = copy(); f(c); c
   }
 
   def append(buf: Array[Byte]) {
