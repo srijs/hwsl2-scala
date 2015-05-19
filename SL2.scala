@@ -1,9 +1,30 @@
-class SL2 {
+class SL2(
+  var a: Gf2p127 = Gf2p127.one,
+  var b: Gf2p127 = Gf2p127.zero,
+  var c: Gf2p127 = Gf2p127.zero,
+  var d: Gf2p127 = Gf2p127.one
+) {
 
-  var a = Gf2p127.one
-  var b = Gf2p127.zero
-  var c = Gf2p127.zero
-  var d = Gf2p127.one
+  def copy() = {
+    new SL2(a, b, c, d)
+  }
+
+  def canEqual(a: Any) = a.isInstanceOf[SL2]
+
+  override def equals(that: Any): Boolean = that match {
+    case that: SL2 => that.canEqual(this) && this.hashCode == that.hashCode
+    case _ => false
+  }
+
+  override def hashCode:Int = {
+    val prime = 31
+    var result = 1
+    result = prime * result + a.hashCode
+    result = prime * result + b.hashCode
+    result = prime * result + c.hashCode
+    result = prime * result + d.hashCode
+    return result
+  }
 
   def mulBitL(bit: Int) {
     val bits = Gf2p127.minmax(bit)
