@@ -1,3 +1,5 @@
+package hwsl2
+
 case class Gf2p127(lo: Long, hi: Long)
 
 object Gf2p127 {

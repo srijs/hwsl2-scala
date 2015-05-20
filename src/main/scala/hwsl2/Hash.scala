@@ -1,3 +1,5 @@
+package hwsl2
+
 class MutableHash private (m: SL2) extends Mutable {
 
   def this() = this(new SL2())

@@ -1,3 +1,5 @@
+package hwsl2
+
 class SL2(
   var a: Gf2p127 = Gf2p127.one,
   var b: Gf2p127 = Gf2p127.zero,

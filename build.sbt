@@ -1,0 +1,1 @@
+name := "hwsl2-scala"
