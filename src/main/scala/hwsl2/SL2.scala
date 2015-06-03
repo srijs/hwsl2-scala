@@ -1,17 +1,17 @@
 package hwsl2
 
-class SL2(
+private[hwsl2] final class SL2(
   var a: Gf2p127 = Gf2p127.one,
   var b: Gf2p127 = Gf2p127.zero,
   var c: Gf2p127 = Gf2p127.zero,
   var d: Gf2p127 = Gf2p127.one
 ) {
 
-  def copy() = {
+  def copy(): SL2 = 
     new SL2(a, b, c, d)
-  }
 
-  def canEqual(a: Any) = a.isInstanceOf[SL2]
+  def canEqual(a: Any) = 
+    a.isInstanceOf[SL2]
 
   override def equals(that: Any): Boolean = that match {
     case that: SL2 => that.canEqual(this) && this.hashCode == that.hashCode
@@ -70,16 +70,13 @@ class SL2(
     mulBitR((byte >>> 0) & 1)
   }
 
-  def mulBufL(buf: Array[Byte]) {
+  def mulBufL(buf: Array[Byte]): Unit =
     for (i <- buf.length-1 to 0 by -1) {
       mulByteL(buf(i))
     }
-  }
  
-  def mulBufR(buf: Array[Byte]) {
+  def mulBufR(buf: Array[Byte]): Unit =
     for (i <- 0 until buf.length) {
       mulByteR(buf(i))
     }
-  }
-
 }

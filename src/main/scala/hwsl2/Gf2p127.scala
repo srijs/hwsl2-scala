@@ -29,5 +29,4 @@ object Gf2p127 {
     val final_hi = carried ^ (overflow << 63)
     new Gf2p127(final_lo, final_hi)
   }
-
 }
