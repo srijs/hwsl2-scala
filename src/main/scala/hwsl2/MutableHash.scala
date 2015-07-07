@@ -26,7 +26,7 @@ class MutableHash private (m: SL2) extends Mutable {
     m.mulBufL(buf)
 
   def foldAppend(bufs: Seq[Array[Byte]]): Unit =
-    bufs.foreach { append(buf) }
+    bufs.foreach { buf => append(buf) }
 
   def foldPrepend(bufs: Seq[Array[Byte]]): Unit =
     bufs.foldRight(()) { (buf, _) => prepend(buf) } 
