@@ -38,9 +38,8 @@ class Hash private (init: MutableHash) extends Immutable {
 
 object Hash {
 
-  def unit = new Hash()
-
-  def hash(buf: Array[Byte]) = new Hash().append(buf)
+  def apply() = new Hash()
+  def apply(buf: Array[Byte]): Hash = Hash().append(buf)
 
   implicit val HashOrder: Order[Hash] = new Order[Hash] {
     def order(a: Hash, b: Hash) = a.compare(b) match {
@@ -51,7 +50,7 @@ object Hash {
   }
 
   implicit val HashMonoid = new Monoid[Hash] {
-    def zero: Hash = unit
+    def zero: Hash = Hash()
     def append(a: Hash, b: => Hash): Hash = a.concat(b)
   }
 
