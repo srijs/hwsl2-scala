@@ -14,3 +14,5 @@ hash functions don't possess, including it being composable. It holds:
 Following that, the hash function is also parallelisable. If a message `m` can be divided into a list of chunks `cs`, the hash of the message can be calculated in parallel.
 
 All operations in this package are implemented in a very efficient manner using SSE instructions.
+
+![diagram](https://raw.githubusercontent.com/srijs/hwsl2-core/master/cat.png)
