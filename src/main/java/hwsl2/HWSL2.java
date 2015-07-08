@@ -3,7 +3,7 @@ package hwsl2;
 import java.nio.ByteBuffer;
 import java.nio.charset.*;
 
-public class HWSL2 {
+class HWSL2 {
 
   static {
     System.loadLibrary("hwsl2");
