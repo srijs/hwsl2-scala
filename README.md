@@ -9,7 +9,7 @@ the polynomial x^127 + x^63 + 1.
 This construction gives some nice properties, which traditional bit-scambling
 hash functions don't possess, including it being composable. It holds:
 
-    hash(m1 |+| m2) == hash(m1) |+| hash(m2)
+    Hash(m1 |+| m2) == Hash(m1) |+| Hash(m2)
 
 Following that, the hash function is also parallelisable. If a message `m` can be divided into a list of chunks `cs`, the hash of the message can be calculated in parallel.
 
