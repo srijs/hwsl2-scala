@@ -54,4 +54,12 @@ object Hash {
     def append(a: Hash, b: => Hash): Hash = a.concat(b)
   }
 
+  implicit val HashReducer: Reducer[Array[Byte], Hash] = {
+    Reducer(
+      b => Hash(b),
+      b => h => h.prepend(b),
+      h => b => h.append(b)
+    )
+  }
+
 }
